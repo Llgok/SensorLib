@@ -110,7 +110,7 @@ public:
         // log_d("ADDR:0x%02X REG:0x%02X, LEN:%u", addr, reg, len);
         wire.beginTransmission(addr);
         wire.write(reg);
-        wire.endTransmission(sendStopFlag);
+        wire.endTransmission(false);
         wire.requestFrom(addr, static_cast<uint8_t>(len));
         return wire.readBytes(buf, len) == len ? 0 : -1;
     }
@@ -119,7 +119,7 @@ public:
     {
         wire.beginTransmission(addr);
         wire.write(write_buffer, write_len);
-        if (wire.endTransmission(sendStopFlag) != 0) {
+        if (wire.endTransmission(false) != 0) {
             return -1;
         }
         wire.requestFrom(addr, read_len);

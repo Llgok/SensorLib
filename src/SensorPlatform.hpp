@@ -29,6 +29,8 @@
  */
 #pragma once
 
+#define ARDUINO 10812
+
 #if defined(ARDUINO)
 #include "platform/arduino/SensorCommArduino_HW.hpp"
 #include "platform/arduino/SensorCommArduino_I2C.hpp"
