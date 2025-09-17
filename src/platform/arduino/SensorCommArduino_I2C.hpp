@@ -183,7 +183,8 @@ private:
 #elif defined(ARDUINO_ARCH_MBED)
             //No thing.
 #else
-#warning "Wire custom GPIO mapping function is not implemented"
+// #warning "Wire custom GPIO mapping function is not implemented"
+            wire.setPins(sda, scl);
 #endif
         }
     }
